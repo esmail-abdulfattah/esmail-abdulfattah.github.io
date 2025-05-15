@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Esmail Abdul Fattah</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Profile Section -->
+  <div class="container">
+    <div class="info">
+      <h1>Esmail Abdul Fattah</h1>
+      <div id="about-text"></div>
+
+      <div class="icons">
+        <a href="https://www.linkedin.com/in/esmail-abdulfattah/" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" />
+        </a>
+        <a href="https://scholar.google.com/citations?user=TNxy8UcAAAAJ&hl=en" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlescholar.svg" alt="Scholar" />
+        </a>
+        <a href="https://github.com/esmail-abdulfattah" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" />
+        </a>
+        <a href="https://x.com/e_abdulfattah?s=09" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="X" />
+        </a>
+        <a href="https://www.researchgate.net/profile/Esmail-Abdul-Fattah-2?ev=hdr_xprf" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/researchgate.svg" alt="RG" />
+        </a>
+        <a href="https://www.semanticscholar.org/author/Esmail-Abdul-Fattah/1740763826" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/semanticscholar.svg" alt="SS" />
+        </a>
+        <a href="https://drive.google.com/file/d/1kvT_yiYTt8a0J19RwpbKWnSPMmw4NBb7/view?usp=sharing" target="_blank">
+        <img src="images/cv.png" alt="CV" />
+        </a>
+        <a href="https://500px.com/p/esmail-abdulfattah?view=photos" target="_blank">
+          <img src="images/camera-icon.png" alt="Photography" />
+        </a>
+      </div>
+
+      <div class="email">📧 esmail.abdul.fattah@kaust.edu.sa</div>
+    </div>
+
+    <div class="photo">
+      <div class="frame-outer">
+        <div class="frame-middle">
+          <img src="images/profile.jpg" alt="Esmail Abdul Fattah" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Research Section -->
+  <div class="container">
+    <div class="full-line-header">
+      <h2 class="section-heading">Research</h2>
+      <div class="underline"></div>
+
+      <div class="icon-row">
+        <a href="./projects/stiles/index.html"><img src="images/stiles.png" alt="sTiles" /></a>
+        <a href="./projects/pyinla/index.html"><img src="images/pyinla.png" alt="PyINLA" /></a>
+        <a href="./projects/smartgradient/index.html"><img src="images/smartgradient.png" alt="Smart Gradient" /></a>
+        <a href="./projects/types1234/index.html"><img src="images/types1234.png" alt="Types 1234" /></a>
+        <a href="./projects/inlaplus/index.html"><img src="images/inlaplus.png" alt="INLA+" /></a>
+        <a href="./projects/fbesag/index.html"><img src="images/fbesag.png" alt="F-BESAG" /></a>
+      </div>
+    </div>
+  </div>
+  
+<!-- Publications Section -->
+<div class="container" id="publications-section"></div>
+
+<!-- Education Section -->
+<div class="container" id="education-section"></div>
+
+  <!-- Awards Section -->
+  <div class="container">
+    <div class="full-line-header">
+      <h2 class="section-heading">Awards</h2>
+      <div class="underline"></div>
+      <ul class="awards-list">
+        <li>🏅 The 2023 Al-Kindi Research Award for outstanding Ph.D. research, Statistics Department, KAUST.</li>
+        <li>🏆 Best Presentation Award, 8th KAUST-NVIDIA Workshop on Accelerating Scientific Applications using GPUs, KAUST.</li>
+        <li>📊 Winner, Poster Award in Bayesian Computation at ISBA22, Montreal, for “Approximate Bayesian Inference for the Interaction Types 1, 2, 3 and 4.”</li>
+        <li>🎓 Full merit-based graduate fellowship, American University of Beirut.</li>
+        <li>🎓 Full merit-based scholarship, USAID program, Haigazian University.</li>
+        <li>🏅 “Outstanding Marketing Campaign Award” & 2nd Place, Social Entrepreneurship Competition.</li>
+        <li>🌟 Top-rated Leadership Student, Selected by “Beyond Reform and Development.”</li>
+      </ul>
+      
+    <p style="margin-top: 20px;">
+     <a href="certifications.html" class="read-more" target="_blank">📜 List of certifications is here →</a>
+    </p>
+
+    </div>
+  </div>
+
+  <div class="container" id="news-section"></div>
+
+  <!-- Reflections Section -->
+  <div class="container">
+    <div class="full-line-header">
+      <h2 class="section-heading">Reflections</h2>
+      <div class="underline"></div>
+      <div id="reflections-section"></div> <!-- Load into this -->
+    </div>
+  </div>
+
+  <script>
+  
+    // Load publications section
+    fetch('publications.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('publications-section').innerHTML = data);
+
+    // Load Education section
+    fetch('education.html')
+    .then(res => res.text())
+    .then(data => document.getElementById('education-section').innerHTML = data);
+    
+    // Load about section
+    fetch('about.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('about-text').innerHTML = data);
+
+    // Load news section
+    fetch('news.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('news-section').innerHTML = data);
+      
+      // Load reflections section
+    fetch('reflections.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('reflections-section').innerHTML = data);
+
+  </script>
+
+
+</body>
+</html>
+

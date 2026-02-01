@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>sTiles Installation</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .logo-centered {
+      display: block;
+      margin: 0 auto 20px auto;
+      width: 160px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="images/stiles.jpeg" alt="sTiles Logo" class="logo-centered" />
+    <h1>🛠️ Installing sTiles</h1>
+
+    <p><strong>sTiles</strong> provides a C++/C/Fortran computational framework for sparse structured matrix factorizations. The recommended way to install sTiles is via <code>CMake</code> with optional support for GPU, LAPACKE variants, and mimalloc.</p>
+
+    <h2>Requirements</h2>
+    <ul>
+      <li>CMake ≥ 3.22</li>
+      <li>GCC or Clang with C++ and Fortran support</li>
+      <li>BLAS and LAPACK (e.g., MKL or OpenBLAS)</li>
+      <li>Optionally: METIS, mimalloc, CUDA, LAPACKE headers</li>
+    </ul>
+
+    <h2>Quick Start</h2>
+    <pre><code>git clone https://github.com/esmail-abdulfattah/sTiles.git
+cd sTiles/devel
+mkdir build && cd build
+
+cmake .. \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_INSTALL_PREFIX=../../install \
+  -DSTILES_GPU=OFF \
+  -DUSE_MIMALLOC=ON \
+  -DUSE_MKL_LAPACKE=OFF \
+  -DLAPACKE_DIR=../../lapack-3.5.0/lapacke/include \
+  -DMETIS_DIR=../lib/metis
+
+cmake --build .
+cmake --install .
+</code></pre>
+
+    <h2>Install Output</h2>
+    <p>The install directory will contain only the essential components:</p>
+    <pre><code>install/
+├── include/
+│   └── stiles.h
+└── lib/
+    ├── libstiles.a
+    ├── libstiles.so
+    └── libcoreblas.a
+</code></pre>
+
+    <h2>Installation Options</h2>
+    <table>
+      <thead>
+        <tr><th>Option</th><th>Description</th><th>Default</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>USE_MKL_LAPACKE</code></td><td>Use Intel MKL-provided LAPACKE</td><td><code>OFF</code></td></tr>
+        <tr><td><code>LAPACKE_DIR</code></td><td>Path to generic LAPACKE headers</td><td><em>empty</em></td></tr>
+        <tr><td><code>STILES_GPU</code></td><td>Enable GPU CUDA kernels</td><td><code>OFF</code></td></tr>
+        <tr><td><code>USE_MIMALLOC</code></td><td>Use mimalloc allocator</td><td><code>ON</code></td></tr>
+        <tr><td><code>METIS_DIR</code></td><td>Path to METIS install (lib + include)</td><td><em>empty</em></td></tr>
+        <tr><td><code>CMAKE_INSTALL_PREFIX</code></td><td>Installation path</td><td><code>/usr/local</code></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Examples</h2>
+    <h4>🔹 With MKL LAPACKE</h4>
+    <pre><code>cmake .. \
+  -DUSE_MKL_LAPACKE=ON \
+  -DMKLROOT=/opt/intel/oneapi/mkl/latest</code></pre>
+
+    <h4>🔹 With GPU and METIS</h4>
+    <pre><code>cmake .. \
+  -DSTILES_GPU=ON \
+  -DMETIS_DIR=../lib/metis</code></pre>
+
+    <h2>Uninstall</h2>
+    <p>If you installed to a custom prefix (e.g., <code>install/</code>), simply delete that folder:</p>
+    <pre><code>rm -rf ../../install</code></pre>
+    <p>If you accidentally installed to <code>/usr/local</code>, you can remove:</p>
+    <pre><code>sudo rm -f /usr/local/lib/libstiles.*
+sudo rm -f /usr/local/lib/libcoreblas.a
+sudo rm -f /usr/local/include/stiles.h</code></pre>
+
+    <p><a href="index.html">← Back to main page</a></p>
+  </div>
+</body>
+</html>
+

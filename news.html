@@ -1,46 +1,89 @@
-<div class="full-line-header">
-  <h2 class="section-heading">News</h2>
-  <div class="underline"></div>
+<h2 id="news-heading" class="section-heading">Updates</h2>
+<p class="section-title-main">Recent News</p>
 
-  <div class="news-list">
-  
-    <div class="news-item">
-      <div class="news-date">📝 April 2025</div>
-      <div class="news-text">
-        <strong>Paper submitted to arXiv:</strong> <em>GPU-Accelerated Parallel Selected Inversion for Structured Matrices Using sTiles</em>.  
-        This work is part of the ongoing <strong>sTiles project</strong>.
+<div class="news-list" role="feed" aria-label="Recent news and updates">
+
+    <article class="news-item" role="article">
+      <div class="news-date">
+        <time datetime="2026-01">Jan 2026</time>
       </div>
-    </div>
+      <div class="news-text">
+        <strong>Serving on the Program Committee</strong> for the <a href="https://dream-workshop.github.io/" target="_blank" rel="noopener noreferrer">DREAM 2026 Workshop</a> at SCA/HPCAsia 2026 in Osaka, Japan.
+      </div>
+    </article>
 
-    <div class="news-item">
-      <div class="news-date">✅ Feb 2025</div>
+    <article class="news-item" role="article">
+      <div class="news-date">
+        <time datetime="2025-12">Dec 2025</time>
+      </div>
+      <div class="news-text">
+        <strong>Paper submitted to Preprints:</strong> <a href="https://www.preprints.org/frontend/manuscript/a07399e3e736a392025af3368fe6dbea/download_pub" target="_blank" rel="noopener noreferrer"><em>Impacts of Social Environments on Neighborhood Depression Incidence: Fully Accounting for Spatial Effects</em></a>.
+      </div>
+    </article>
+
+    <article class="news-item news-hidden" role="article">
+      <div class="news-date">
+        <time datetime="2025-09">Sept 2025</time>
+      </div>
+      <div class="news-text">
+        <strong>Paper submitted to arXiv:</strong> <em>GPU-Accelerated Parallel Selected Inversion for Structured Matrices Using sTiles</em>. This work is part of the ongoing <strong>sTiles project</strong>.
+      </div>
+    </article>
+
+    <article class="news-item news-hidden" role="article">
+      <div class="news-date">
+        <time datetime="2025-02">Feb 2025</time>
+      </div>
       <div class="news-text">
         <strong>Paper accepted at ISC High Performance 2025:</strong> <em>sTiles: An Accelerated Computational Framework for Sparse Factorizations of Structured Matrices</em>.
       </div>
-    </div>
+    </article>
 
-  <div class="news-item">
-    <div class="news-date">📘 Dec 2024</div>
-    <div class="news-text">
-      <strong>Paper accepted in <em>Statistics and Computing</em>:</strong> <em>INLA+ – Approximate Bayesian inference for non-sparse models using HPC</em>.
-    </div>
-  </div>
+    <article class="news-item news-hidden" role="article">
+      <div class="news-date">
+        <time datetime="2024-12">Dec 2024</time>
+      </div>
+      <div class="news-text">
+        <strong>Paper accepted in <em>Statistics and Computing</em>:</strong> <em>INLA+ - Approximate Bayesian inference for non-sparse models using HPC</em>.
+      </div>
+    </article>
 
-  <div class="news-item">
-    <div class="news-date">🏫 Dec 2025</div>
-    <div class="news-text">
-      <strong>Accepted to the ASEAN ACM School of High-Performance Computing (HPC)</strong>, hosted by NSCC Singapore.
-    </div>
-  </div>
-
-  <div class="news-item">
-    <div class="news-date">🏫 July 2024</div>
-    <div class="news-text">
-      <strong>Selected to attend the 2024 ACM Europe Summer School</strong> on <em>HPC Computer Architectures for AI and Dedicated Applications</em>.
-    </div>
-  </div>
-
-
-  </div>
 </div>
 
+<button class="news-toggle" aria-expanded="false">
+  Show more <span class="toggle-arrow">&#8595;</span>
+</button>
+
+<style>
+  .news-hidden {
+    display: none;
+  }
+  .news-list.expanded .news-hidden {
+    display: flex;
+  }
+  .news-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    color: var(--color-accent);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .news-toggle:hover {
+    background: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+  }
+  .toggle-arrow {
+    transition: transform 0.3s ease;
+  }
+  .news-list.expanded + .news-toggle .toggle-arrow {
+    transform: rotate(180deg);
+  }
+</style>

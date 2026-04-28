@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pdftoppm -png -r 300 /home/abdulfe/Documents/sites/mysite/esmail-abdulfattah.github.io/projects/stiles/pdfs/output.pdf /home/abdulfe/Documents/sites/mysite/esmail-abdulfattah.github.io/projects/stiles/pdfs/slides/slide)",
+      "Bash(identify /home/abdulfe/Documents/sites/mysite/esmail-abdulfattah.github.io/projects/stiles/pdfs/slides/slide-009.png)",
+      "Bash(xdg-open /home/abdulfe/Documents/sites/mysite/esmail-abdulfattah.github.io/projects/stiles/pdfs/newpresent/index_cirad.html)"
+    ]
+  }
+}

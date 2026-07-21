@@ -293,6 +293,8 @@ print(res.x, res.fun)</code></pre>
 
     <p>The import name is lowercase (<code>import smartgrad</code>) even though the package is published as <code>smartGrad</code>. If you want the gradient on its own rather than the objective-and-gradient pair, call <code>opt.calculate_smart_grad(x)</code>.</p>
 
+    <p>The rotation carries a small amount of random jitter, so repeated runs differ slightly. Pass <code>seed=42</code> when you need reproducible results.</p>
+
     <h2>Links &amp; references</h2>
     <ul>
       <li>📦 Code: <a href="https://github.com/esmail-abdulfattah/Smart-Gradient" target="_blank" rel="noopener">esmail-abdulfattah/Smart-Gradient</a> (R, C++ header-only, and Python implementations).</li>

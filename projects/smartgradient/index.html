@@ -259,6 +259,40 @@ result &lt;- optim(
 
     <p>That's it. <code>makeSmart()</code> takes your existing numerical gradient and returns a drop-in replacement that maintains the rotated basis internally. The optimizer doesn't need to know anything has changed.</p>
 
+    <h2>Try it in Python</h2>
+
+    <h3>Installation</h3>
+    <pre><code>pip install smartGrad</code></pre>
+
+    <h3>1. Define your objective</h3>
+    <p>The same extended Rosenbrock function:</p>
+    <pre><code>import numpy as np
+from scipy.optimize import minimize
+from smartgrad import SmartGradientOptimizer
+
+def rosenbrock(x):
+    return sum((1 - x[i])**2 + 100 * (x[i+1] - x[i]**2)**2
+               for i in range(0, len(x), 2))</code></pre>
+
+    <h3>2. Wrap it and optimize</h3>
+    <p>There is no separate gradient function to write — <code>SmartGradientOptimizer</code> takes the finite differences itself, in the rotated basis. Hand its <code>fun_and_grad</code> method to any optimizer that accepts <code>jac=True</code>:</p>
+    <pre><code>n = 4
+opt = SmartGradientOptimizer(objective_fun=rosenbrock, n=n)
+
+res = minimize(
+    opt.fun_and_grad,
+    np.zeros(n),
+    method="L-BFGS-B",
+    jac=True,
+)
+print(res.x, res.fun)</code></pre>
+
+    <div class="callout">
+      On this problem Smart Gradient converges in <strong>26 function evaluations</strong>, against <strong>125</strong> for SciPy's built-in finite differences — same optimum, roughly a fifth of the work.
+    </div>
+
+    <p>The import name is lowercase (<code>import smartgrad</code>) even though the package is published as <code>smartGrad</code>. If you want the gradient on its own rather than the objective-and-gradient pair, call <code>opt.calculate_smart_grad(x)</code>.</p>
+
     <h2>Links &amp; references</h2>
     <ul>
       <li>📦 Code: <a href="https://github.com/esmail-abdulfattah/Smart-Gradient" target="_blank" rel="noopener">esmail-abdulfattah/Smart-Gradient</a> (R, C++ header-only, and Python implementations).</li>
